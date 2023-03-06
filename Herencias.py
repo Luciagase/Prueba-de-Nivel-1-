@@ -24,7 +24,18 @@ class Bicicleta(Vehiculo):
         self.tipo = tipo
 
     def __str__(self):
-        return Vehiculo.__str__(self) + ", " + self.tipo
+        return Vehiculo.__str__(self) + ", {}".format(self.tipo)
+    
+class Motocicleta(Bicicleta):
+
+    def __init__(self, color, ruedas, tipo, velocidad, cilindrada):
+        super().__init__(color, ruedas, tipo)
+        self.velocidad = velocidad
+        self.cilindrada = cilindrada
+
+    def __str__(self):
+        return Bicicleta.__str__(self) + ", {} km/h, {} cc".format(self.velocidad, self.cilindrada)
+
     
 
 class Camioneta(Coche):
@@ -37,16 +48,10 @@ class Camioneta(Coche):
         return Coche.__str__(self) + ", {} kg".format(self.carga)
     
 
-class Motocicleta(Coche):
+coche = Coche("rosa",4,240,650)
+camion = Camioneta("azul",6,170,800,5000)
+bici = Bicicleta("rojo",2,"urbana")
+moto = Motocicleta("gris",2,"urbana",195,350)
 
-    def __init__(self, color, ruedas, tipo, velocidad, cilindrada):
-        super().__init__(color, ruedas, tipo)
-        self.velocidad = velocidad
-        self.cilindrada = cilindrada
-
-    def __str__(self):
-        return Bicicleta.__str__(self) + ", {} km/h, {} cc".format(self.velocidad, self.cilindrada)
-
-
-coche = Bicicleta("azul", 4, "deportiva", 100, 1200)
-print(coche)
+# Lista
+vehiculos = [coche, camion, bici, moto]

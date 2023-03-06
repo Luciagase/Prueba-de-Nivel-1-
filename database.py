@@ -3,17 +3,17 @@ import csv
 import config
 
 
-class Cliente:
-    def __init__(self, dni, nombre, apellido):
-        self.dni = dni
-        self.nombre = nombre
-        self.apellido = apellido
+class Vehiculo():
+    def __init__(self, bastidor, color, ruedas):
+        self.bastidor = bastidor
+        self.color = color
+        self.ruedas = ruedas
 
     def __str__(self):
-        return f"({self.dni}) {self.nombre} {self.apellido}"
+        return "Color {}, {} ruedas".format( self.color, self.ruedas )
 
     def to_dict(self):
-        return {'dni': self.dni, 'nombre': self.nombre, 'apellido': self.apellido}
+        return {'bastidor': self.bastidor, 'color': self.color, 'ruedas': self.ruedas}
 
 
 class Clientes:
